@@ -122,6 +122,15 @@ public class TransactionController {
 			
 		
 	}
-	
+	public Transaction updateTransactionDetails(TransactionRequestPayload transactionRequestPayload){
+		Transaction newTransaction= new Transaction();
+		newTransaction.setTransactionType(transactionRequestPayload.getType());
+		newTransaction.setTransactionSubType(transactionRequestPayload.getSubType());
+		newTransaction.setAccountNumber(transactionRequestPayload.getAccountNumber());
+		newTransaction.setTransactionAmount(transactionRequestPayload.getAmount());
+		
+		transactionService.createTransaction(newTransaction);
+		return newTransaction;
+	}
 	
 }
